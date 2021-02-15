@@ -1,10 +1,14 @@
 import React, { FC } from 'react';
-import { Provider } from 'react-redux';
-import store from './store';
-import Jobs from './components/Jobs';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { Jobs } from './components/Jobs';
+
+const client = new ApolloClient({
+  uri: 'https://api.graphql.jobs',
+  cache: new InMemoryCache()
+});
 
 const App: FC = () => (
-  <Provider store={store}>
+  <ApolloProvider client={client}>
     <header className="bg-white shadow">
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold leading-tight text-gray-900">
@@ -17,7 +21,7 @@ const App: FC = () => (
         <Jobs />
       </div>
     </main>
-  </Provider>
+  </ApolloProvider >
 );
 
 export default App;
