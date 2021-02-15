@@ -39,7 +39,7 @@ class Jobs extends Component<JobsState> {
                     data?.countries.map(country =>
                       country.cities.map(city =>
                         city.jobs.map(job => (
-                          <tr key={job.id}>
+                          <tr key={job.id} data-testid={`table-row-${job.id}`}>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">{job.title}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{job.company.name}</td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{country.name}</td>
