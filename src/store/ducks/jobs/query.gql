@@ -1,0 +1,18 @@
+query {
+  countries {
+    name
+    cities {
+      name
+      jobs {
+        id
+        title
+        company {
+          name
+        }
+        remotes {
+          type
+        }
+      }
+    }
+  }
+}
